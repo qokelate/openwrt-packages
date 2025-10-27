@@ -290,7 +290,7 @@ jobs:
 
       - name: Upload Specials
         if: ${{ failure() && steps.build_specials.conclusion == 'failure' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: Specials-SDK-${{ hashFiles('**/Makefile') }}
           path: ${{ github.workspace }}/SPECIAL_WORKDIR/SDK
@@ -315,7 +315,7 @@ jobs:
 
       - name: Upload error logs
         if: ${{ failure() && steps.build_packags.conclusion == 'failure' }}
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: error-logs-${{ hashFiles('**/Makefile') }}
           path: /workdir/logs
@@ -443,7 +443,7 @@ jobs:
         working-directory: ${{ inputs.GHPAGES_PATH }}/
 
       - name: Upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: ${{ env.artifact }}
           path: |
